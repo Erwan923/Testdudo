@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testdudo-coordinator
+  labels:
+    app: testdudo
+    component: coordinator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: testdudo
+      component: coordinator
+  template:
+    metadata:
+      labels:
+        app: testdudo
+        component: coordinator
+    spec:
+      containers:
+      - name: coordinator
+        image: testdudo/coordinator:latest
+        env:
+        - name: GPT_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: testdudo-secrets
+              key: gpt-api-key
+        ports:
+        - containerPort: 8080

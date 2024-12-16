@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testdudo-network
+  labels:
+    app: testdudo
+    component: network
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: testdudo
+      component: network
+  template:
+    metadata:
+      labels:
+        app: testdudo
+        component: network
+    spec:
+      containers:
+      - name: network
+        image: testdudo/network:latest
+        securityContext:
+          capabilities:
+            add: ["NET_ADMIN", "NET_RAW"]
+        ports:
+        - containerPort: 8082

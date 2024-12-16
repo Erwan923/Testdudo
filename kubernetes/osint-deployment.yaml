@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testdudo-osint
+  labels:
+    app: testdudo
+    component: osint
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: testdudo
+      component: osint
+  template:
+    metadata:
+      labels:
+        app: testdudo
+        component: osint
+    spec:
+      containers:
+      - name: osint
+        image: testdudo/osint:latest
+        ports:
+        - containerPort: 8081
