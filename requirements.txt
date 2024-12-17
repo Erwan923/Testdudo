@@ -1,7 +1,5 @@
-fastapi>=0.68.0
-typer>=0.4.0
-pydantic>=1.8.0
-rich>=10.0.0
-kubernetes>=12.0.0
-openai>=0.27.0
-requests>=2.26.0
+pyyaml>=5.1
+openai>=1.0.0
+requests>=2.25.1
+ansible>=2.9.0
+python-nmap>=0.7.1

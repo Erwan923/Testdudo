@@ -1,0 +1,31 @@
+# Configuration principale de Testdudo
+
+# Options générales
+ai_enabled: true
+vision_enabled: true
+log_level: INFO
+
+# Chemins des dossiers
+paths:
+  cheatsheets: cheatsheets/
+  reports: reports/
+  playbooks: playbooks/
+  screenshots: screenshots/
+
+# Configuration des phases d'attaque
+phases:
+  recon:
+    timeout: 300
+    parallel: true
+  scan:
+    timeout: 600
+    parallel: false
+  exploit:
+    timeout: 900
+    requires_confirmation: true
+
+# Options de sécurité
+security:
+  max_parallel_tasks: 5
+  require_root_confirmation: true
+  auto_cleanup: true
